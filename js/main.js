@@ -6,7 +6,7 @@
 (function(html) {
 
     "use strict";
-    
+
     html.className = html.className.replace(/\bno-js\b/g, '') + ' js ';
 
 
@@ -18,7 +18,7 @@
         if (!preloader) return;
 
         window.addEventListener('load', function() {
-            
+
             document.querySelector('body').classList.remove('ss-preload');
             document.querySelector('body').classList.add('ss-loaded');
 
@@ -40,7 +40,7 @@
 
    /* Parallax
     * -------------------------------------------------- */
-    const ssParallax = function() { 
+    const ssParallax = function() {
 
         const rellax = new Rellax('.rellax');
 
@@ -52,19 +52,19 @@
     const ssMoveHeader = function () {
 
         const hdr = document.querySelector('.s-header');
-        const hero = document.querySelector('#hero');
+        const home = document.querySelector('#home');
         let triggerHeight;
 
-        if (!(hdr && hero)) return;
+        if (!(hdr && home)) return;
 
         setTimeout(function(){
-            triggerHeight = hero.offsetHeight - 170;
+            triggerHeight = home.offsetHeight - 170;
         }, 300);
 
         window.addEventListener('scroll', function () {
 
             let loc = window.scrollY;
-           
+
 
             if (loc > triggerHeight) {
                 hdr.classList.add('sticky');
@@ -90,7 +90,7 @@
 
 
    /* Mobile Menu
-    * ---------------------------------------------------- */ 
+    * ---------------------------------------------------- */
     const ssMobileMenu = function() {
 
         const toggleButton = document.querySelector('.s-header__menu-toggle');
@@ -138,21 +138,21 @@
         window.addEventListener("scroll", navHighlight);
 
         function navHighlight() {
-        
+
             // Get current scroll position
             let scrollY = window.pageYOffset;
-        
-            // Loop through sections to get height(including padding and border), 
+
+            // Loop through sections to get height(including padding and border),
             // top and ID values for each
             sections.forEach(function(current) {
                 const sectionHeight = current.offsetHeight;
                 const sectionTop = current.offsetTop - 50;
                 const sectionId = current.getAttribute("id");
-            
-               /* If our current scroll position enters the space where current section 
-                * on screen is, add .current class to parent element(li) of the thecorresponding 
-                * navigation link, else remove it. To know which link is active, we use 
-                * sectionId variable we are getting while looping through sections as 
+
+               /* If our current scroll position enters the space where current section
+                * on screen is, add .current class to parent element(li) of the thecorresponding
+                * navigation link, else remove it. To know which link is active, we use
+                * sectionId variable we are getting while looping through sections as
                 * an selector
                 */
                 if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -167,7 +167,7 @@
 
 
    /* Swiper
-    * ------------------------------------------------------ */ 
+    * ------------------------------------------------------ */
     const ssSwiper = function() {
 
         const mySwiper = new Swiper('.swiper-container', {
@@ -176,7 +176,7 @@
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
-            },          
+            },
             breakpoints: {
                 // when window width is >= 401px
                 401: {
@@ -235,7 +235,7 @@
     const ssAlertBoxes = function() {
 
         const boxes = document.querySelectorAll('.alert-box');
-  
+
         boxes.forEach(function(box) {
 
             box.addEventListener('click', function(e){
@@ -246,7 +246,7 @@
                     setTimeout(function() {
                         box.style.display = "none";
                     }, 500)
-                }    
+                }
             });
 
         })
@@ -257,7 +257,7 @@
    /* Smoothscroll
     * ------------------------------------------------------ */
     const ssSmoothScroll = function () {
-        
+
         const triggers = document.querySelectorAll(".smoothscroll");
 
         triggers.forEach(function(trigger) {
